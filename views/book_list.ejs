@@ -1,0 +1,15 @@
+<h1><%= locals.title %></h1>
+
+<ul>
+  <% if(locals.book_list.length){ %> <% for(let i= 0; i <
+  locals.book_list.length; i++) {%>
+  <li>
+    <a href="<%= locals.book_list[i].url%>">
+      <%= locals.book_list[i].title %>
+    </a>
+    | (<%=locals.book_list[i].author.name %>)
+  </li>
+  <% }}else{ %>
+  <li>There are no books.</li>
+  <% } %>
+</ul>
