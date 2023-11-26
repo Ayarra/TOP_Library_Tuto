@@ -1,0 +1,43 @@
+<h1>Title: <%=locals.title%></h1>
+<p>
+  <strong>Author:</strong>
+  <a href="<%=locals.book.author.url%>"> <%=locals.book.author.name%></a>
+</p>
+<p><strong>Summary:</strong><%=locals.book.summary%></p>
+
+<p><strong>ISBN:</strong> <%=locals.book.isbn%></p>
+
+<p>
+  <strong>Genre:</strong>
+  <%for(let i = 0; i < locals.book.genre.length;i++){%>
+  <a href="<%=locals.book.genre[i].url%>"><%=locals.book.genre[i].name%></a>
+  <%if(i< locals.book.genre.length -1){%>,<%}}%>
+</p>
+
+<div style="margin-left: 20px; margin-top: 20px">
+  <h4>Copies</h4>
+
+  <%if(locals.book_instances.length){%> <%for(let i = 0; i<
+  locals.book_instances.length; i++){%>
+  <hr />
+  <%if(locals.book_instances[i].status ==="Available"){%>
+  <p class="text-success"><%=locals.book_instances[i].status%></p>
+  <%}else if(locals.book_instances[i].status ==="Maintenance"){%>
+  <p class="text-danger"><%=locals.book_instances[i].status%></p>
+  <%}else{%>
+  <p class="text-warning"><%=locals.book_instances[i].status%></p>
+  <%}%>
+  <p><strong>Imprint:</strong> <%=locals.book_instances[i].imprint%></p>
+  <%if(locals.book_instances[i].status !== "Available"){%>
+  <p><strong>Due back:</strong> <%=locals.book_instances[i].due_back%></p>
+  <%}%>
+  <p><strong>Id:</strong> <%=locals.book_instances[i].id%></p>
+
+  <%}}else{%>
+  <p>There are no copies of this book in the library.</p>
+  <%}%>
+</div>
+
+<hr />
+<p><a href="<%=locals.book.url%>/delete">Delete Book</a></p>
+<p><a href="<%=locals.book.url%>/update">Update Book</a></p>

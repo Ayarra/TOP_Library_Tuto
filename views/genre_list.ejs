@@ -1,0 +1,11 @@
+<h1><%= locals.title%></h1>
+<ul>
+  <% if(locals.genre_list.length){%> <%for(let i =0 ; i<
+  locals.genre_list.length; i++){%>
+  <li>
+    <a href="<%=locals.genre_list[i].url%>"><%=locals.genre_list[i].name %> </a>
+  </li>
+  <%}}else {%>
+  <li>There are no books.</li>
+  <%}%>
+</ul>

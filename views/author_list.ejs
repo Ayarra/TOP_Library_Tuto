@@ -1,0 +1,15 @@
+<h1><%= locals.title%></h1>
+<ul>
+  <% if(locals.author_list.length){%> <%for(let i =0 ; i<
+  locals.author_list.length; i++){%>
+  <li>
+    <a href="<%=locals.author_list[i].url%>"
+      ><%=locals.author_list[i].name %>
+    </a>
+    <%=locals.author_list[i].date_of_birth%> -
+    <%=locals.author_list[i].date_of_death%>
+  </li>
+  <%}}else {%>
+  <li>There are no authors.</li>
+  <%}%>
+</ul>

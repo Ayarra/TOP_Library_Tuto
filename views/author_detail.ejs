@@ -1,0 +1,23 @@
+<h1><%=locals.author.name%></h1>
+
+<p><%=locals.author.date_of_birth%> - <%=locals.date_of_death%></p>
+
+<div style="margin-left: 20px; margin-top: 20px">
+  <h4>Books</h4>
+  <dl>
+    <%if(locals.author_books.length){%> <%for(let i =0; i<
+    locals.author_books.length; i++){%>
+    <dt>
+      <a href="<%=locals.author_books[i].url%>"
+        ><%=locals.author_books[i].title%>
+      </a>
+    </dt>
+    <dd><%=locals.author_books[i].summary%></dd>
+
+    <%}}else{%>
+    <p>This author has no books.</p>
+    <%}%>
+  </dl>
+</div>
+<hr />
+<p><a href="<%=locals.author.url%>/delete">Delete author</a></p>

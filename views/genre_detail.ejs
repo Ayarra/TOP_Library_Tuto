@@ -1,0 +1,14 @@
+<h1>Genre: <%=locals.genre.name%></h1>
+
+<div style="margin-left: 20px; margin-top: 20px">
+  <h4>Books</h4>
+  <dl>
+    <%if(genre_books.length){%> <%for(let i = 0; i< genre_books.length; i++){%>
+    <dt>
+      <a href="<%=genre_books[i].url%>"> <%=genre_books[i].title%></a>
+    </dt>
+    <dd><%=genre_books[i].summary%></dd>
+
+    <%}}%>
+  </dl>
+</div>
